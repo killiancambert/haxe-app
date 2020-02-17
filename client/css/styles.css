@@ -1,5 +1,6 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #2d3436;
 }
 
 .main-container {
@@ -10,36 +11,68 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 10em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
 }
 
-.main-container .loginform {
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.main-container .title {
+  color: #2d3436;
 }
 
-.main-container .registerform {
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.main-container ::-webkit-input-placeholder {
+  color: #bac3c5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
 }
 
-.main-container .chatform {
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.main-container :-ms-input-placeholder {
+  color: #bac3c5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.main-container ::-ms-input-placeholder {
+  color: #bac3c5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.main-container ::placeholder {
+  color: #bac3c5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.main-container ::-webkit-input-placeholder:focus {
+  color: #2d3436;
+}
+
+.main-container :-ms-input-placeholder:focus {
+  color: #2d3436;
+}
+
+.main-container ::-ms-input-placeholder:focus {
+  color: #2d3436;
+}
+
+.main-container ::placeholder:focus {
+  color: #2d3436;
 }
 
 .main-container #login {
-  width: 100%;
+  width: 75vh;
+  height: 50vh;
+  margin-top: 10em;
+  padding: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,39 +80,120 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #f5f6fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.main-container #login .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f5f6fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.main-container #login .form .log-input {
+  display: block;
+  outline: none;
+  width: 150px;
+  height: 20px;
+  padding: 1em;
+  background: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #2d3436;
+  border: none;
+  border-bottom: 2px solid #bac3c5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.main-container #login .form .log-input:focus {
+  border-bottom: 3px solid #2d3436;
 }
 
 .main-container #register {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  width: 75vh;
+  height: 50vh;
+  margin-top: 10em;
+  padding: 50px;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.main-container .log-input {
-  display: block;
-  width: 150px;
-  height: 20px;
-  margin: 1em;
+  background-color: #f5f6fa;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .main-container .reg-input {
   display: block;
+  outline: none;
   width: 150px;
   height: 20px;
   margin: 1em;
+  padding: 1em;
+  background: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #2d3436;
+  border: none;
+  border-bottom: 2px solid #bac3c5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.main-container .reg-input:focus {
+  border-bottom: 3px solid #2d3436;
 }
 
 .main-container .sub {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  margin-top: 4em;
+  border-radius: 40px;
+  background: #fff;
+  border: 2px solid #2f3640;
+  color: #2f3640;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  font-size: 15px;
+  font-weight: bold;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.main-container .sub:hover {
+  background: #2f3640;
+  border: 2px solid #2f3640;
+  color: #fff;
 }

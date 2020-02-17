@@ -53,7 +53,12 @@ class Main {
 
 		// Setup express server with middlewares
 		var server:Express = new js.npm.Express();
-		server.use(cors());
+		server.use(cors({
+			credentials: true,
+			origin: function(req:Request, callback:String->Bool->Void) {
+				callback(null, true);
+			}
+		}));
 		server.use(BodyParser.json({limit: '5mb', type: 'application/json'}));
 		server.use(new Static("client"));
 		server.use(new Session({
@@ -90,7 +95,7 @@ class Main {
 						// add socket to destination list
 						sockets.add(socket);
 						// welcome
-						socket.send("Bienvenue sur le chat " + username, null);
+						socket.send("Bienvenue " + username, null);
 					} else {
 						socket.close(0, "Please provide a ticket first to log in.");
 					}
@@ -210,7 +215,7 @@ class Main {
 							trace(err);
 							res.send(500, err.message);
 						case UserExistsResult.Yes, UserExistsResult.WrongPassword:
-							res.send(200, "OK");
+							res.send(500, "Utilisateur déjà existant !");
 						case UserExistsResult.Missing:
 							UserDataAccessor.createUser(connection, {
 								id: id,

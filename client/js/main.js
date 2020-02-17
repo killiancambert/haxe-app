@@ -1,12 +1,12 @@
 (function () {
   var ws = new WebSocket("ws://localhost:1338");
 
-  var chatform = document.querySelector('.chatform');
-  var loginform = document.querySelector('.loginform');
-  var registerform = document.querySelector('.registerform');
+  var chatform = document.querySelector('.chat-form');
+  var loginform = document.querySelector('.login-form');
+  var registerform = document.querySelector('.register-form');
   document.querySelector('#chat').style.display = 'none';
 
-  async function sendLogging(username, password) {
+  async function sendLogin(username, password) {
     const loginResponse = await fetch('http://localhost:1337/login', {
       method: 'POST',
       body:JSON.stringify({
@@ -15,7 +15,8 @@
       }),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      credentials: 'include'
     });
     const loginResponseValue = await loginResponse.text();
     if (loginResponseValue != "OK") {
@@ -50,14 +51,15 @@
       }),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      credentials: 'include'
     });
     const registerResponseValue = await registerResponse.text();
     if (registerResponseValue.ok) {
       document.querySelector('.error').textContent = registerResponseValue;
       return;
-    } else {
-      document.querySelector('.error').textContent = 'Le compte a été créé !';
+    // } else {
+    //   document.querySelector('.error').textContent = 'Le compte a été créé !';
     }
   }
 
@@ -67,7 +69,7 @@
     var passwordInput = loginform.querySelector('input[name=password]');
     var username = usernameInput.value;
     var password = passwordInput.value;
-    sendLogging(username, password);
+    sendLogin(username, password);
   }
   
   registerform.onsubmit = function (e) {
