@@ -113,6 +113,14 @@ class UserDataAccessor {
 		});
 	}
 
+
+	/**
+	 * Save data to a specific user
+	 * @param connection 
+	 * @param username 
+	 * @param data 
+	 * @param callback 
+	 */
 	public static function save(connection:MySQLConnection, username:String, data:Dynamic, callback:QueryResult<Dynamic>->Void):Void {
 		connection.query("UPDATE user SET data=? WHERE username=?", [Json.stringify(data), username],
 		(error:js.lib.Error, results, fields) -> {
@@ -124,6 +132,12 @@ class UserDataAccessor {
 		});
 	}
 
+	/**
+	 * Show data of a specific user 
+	 * @param connection 
+	 * @param username 
+	 * @param callback 
+	 */
 	public static function load(connection:MySQLConnection, username:String, callback:QueryResult<Dynamic>->Void):Void {
 		connection.query("SELECT data FROM user WHERE username=?", [username],
 		(error:js.lib.Error, results, fields) -> {
